@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
   {
@@ -32,47 +33,47 @@ const FAQ = () => {
     <section className="section-padding">
       <div className="max-w-3xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="text-label mb-4 block">FAQs</span>
           <h2 className="heading-section italic">FAQs</h2>
-        </div>
+        </ScrollReveal>
 
         {/* FAQ Items */}
         <div className="space-y-0">
           {faqs.map((faq, idx) => (
-            <motion.div
+            <ScrollReveal
               key={idx}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: idx * 0.05, duration: 0.3 }}
-              viewport={{ once: true }}
-              className="faq-item"
+              delay={idx * 0.08}
+              direction="up"
+              distance={30}
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full flex items-center justify-between text-left"
-              >
-                <span className="text-lg text-foreground pr-8">{faq.question}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
-                    openIndex === idx ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              <AnimatePresence>
-                {openIndex === idx && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="text-body pt-4">{faq.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              <div className="faq-item">
+                <button
+                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  className="w-full flex items-center justify-between text-left"
+                >
+                  <span className="text-lg text-foreground pr-8">{faq.question}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
+                      openIndex === idx ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {openIndex === idx && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-body pt-4">{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

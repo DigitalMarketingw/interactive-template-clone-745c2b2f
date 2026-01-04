@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 import testimonial1 from "@/assets/testimonial-1.png";
 import testimonial2 from "@/assets/testimonial-2.png";
 import testimonial3 from "@/assets/testimonial-3.png";
@@ -36,40 +36,39 @@ const Testimonials = () => {
     <section className="section-padding bg-card">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="text-label mb-4 block">Testimonials</span>
           <h2 className="heading-section">
             Hear from the Clients<br />
             <span className="italic">We've Partnered With</span>
           </h2>
-        </div>
+        </ScrollReveal>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, idx) => (
-            <motion.div
+            <ScrollReveal
               key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="testimonial-card"
+              delay={idx * 0.1}
+              direction={idx % 2 === 0 ? "left" : "right"}
             >
-              <p className="text-lg text-foreground leading-relaxed mb-8">
-                "{testimonial.quote}"
-              </p>
-              <div className="flex items-center gap-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-foreground font-medium">{testimonial.name}</p>
-                  <p className="text-muted-foreground text-sm">{testimonial.title}</p>
+              <div className="testimonial-card h-full">
+                <p className="text-lg text-foreground leading-relaxed mb-8">
+                  "{testimonial.quote}"
+                </p>
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="text-foreground font-medium">{testimonial.name}</p>
+                    <p className="text-muted-foreground text-sm">{testimonial.title}</p>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

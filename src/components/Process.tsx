@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const steps = [
   {
@@ -31,7 +31,7 @@ const Process = () => {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="text-label mb-4 block">Our Process</span>
           <h2 className="heading-section">
             The Journey to a<br />
@@ -40,23 +40,23 @@ const Process = () => {
           <p className="text-body max-w-xl mx-auto mt-6">
             We keep things lean and collaborative — so ideas go from concept to launch without the chaos.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Process Steps */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
-            <motion.div
+            <ScrollReveal
               key={step.number}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="card-dark text-center"
+              delay={0.1 + idx * 0.1}
+              direction="up"
+              scale
             >
-              <span className="text-muted-foreground text-sm mb-4 block">/{step.number}</span>
-              <h3 className="text-lg font-medium text-foreground mb-3">{step.title}</h3>
-              <p className="text-body text-sm">{step.description}</p>
-            </motion.div>
+              <div className="card-dark text-center h-full">
+                <span className="text-muted-foreground text-sm mb-4 block">/{step.number}</span>
+                <h3 className="text-lg font-medium text-foreground mb-3">{step.title}</h3>
+                <p className="text-body text-sm">{step.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

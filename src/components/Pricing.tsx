@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const plans = [
   {
@@ -57,7 +57,7 @@ const Pricing = () => {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="text-label mb-4 block">Pricing Plan</span>
           <h2 className="heading-section">
             Plans<br />
@@ -66,54 +66,54 @@ const Pricing = () => {
           <p className="text-body max-w-xl mx-auto mt-6">
             Whether you're launching a startup or growing a product, we've got a plan that fits your stage — no fluff, just what you need.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {plans.map((plan, idx) => (
-            <motion.div
+            <ScrollReveal
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className={`pricing-card ${plan.popular ? "pricing-card-popular" : ""}`}
+              delay={idx * 0.15}
+              direction="up"
+              scale
             >
-              <div className="flex items-center justify-between mb-6">
-                <span className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm text-foreground">
-                  {plan.number}
-                </span>
-                {plan.popular && (
-                  <span className="px-3 py-1 text-xs bg-foreground text-background rounded-full">
-                    Popular
+              <div className={`pricing-card h-full ${plan.popular ? "pricing-card-popular" : ""}`}>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-sm text-foreground">
+                    {plan.number}
                   </span>
-                )}
+                  {plan.popular && (
+                    <span className="px-3 py-1 text-xs bg-foreground text-background rounded-full">
+                      Popular
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="text-lg font-medium text-foreground mb-2">{plan.name}</h3>
+                <p className="text-body text-sm mb-6">{plan.description}</p>
+
+                <div className="mb-8">
+                  <span className="text-4xl font-display font-medium text-foreground">{plan.price}</span>
+                  <span className="text-muted-foreground text-sm ml-1">{plan.period}</span>
+                </div>
+
+                <a href="#contact" className={plan.popular ? "btn-primary w-full justify-center" : "btn-outline w-full justify-center"}>
+                  Get Started
+                </a>
+
+                <div className="mt-8 pt-6 border-t border-border">
+                  <span className="text-label mb-4 block">Plan Detail</span>
+                  <ul className="space-y-3">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <Check className="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-
-              <h3 className="text-lg font-medium text-foreground mb-2">{plan.name}</h3>
-              <p className="text-body text-sm mb-6">{plan.description}</p>
-
-              <div className="mb-8">
-                <span className="text-4xl font-display font-medium text-foreground">{plan.price}</span>
-                <span className="text-muted-foreground text-sm ml-1">{plan.period}</span>
-              </div>
-
-              <a href="#contact" className={plan.popular ? "btn-primary w-full justify-center" : "btn-outline w-full justify-center"}>
-                Get Started
-              </a>
-
-              <div className="mt-8 pt-6 border-t border-border">
-                <span className="text-label mb-4 block">Plan Detail</span>
-                <ul className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

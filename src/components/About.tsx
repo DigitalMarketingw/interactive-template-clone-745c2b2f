@@ -41,7 +41,7 @@ const About = () => {
           <div className="grid grid-cols-3 gap-8">
             {stats.map((stat, idx) => (
               <ScrollReveal key={stat.label} delay={0.4 + idx * 0.1} direction="up" className="text-center">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} className="stat-number text-foreground" />
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} className="stat-number" />
                 <p className="text-muted-foreground text-sm mt-2">{stat.label}</p>
               </ScrollReveal>
             ))}

@@ -29,11 +29,25 @@ const Hero = () => {
         <div className="absolute inset-0 bg-background/60" />
       </div>
 
+      {/* 3D Hero Image - Positioned absolutely like in Framer */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-4xl animate-float pointer-events-none z-0"
+      >
+        <img
+          src={heroBanner}
+          alt="3D Abstract Hero"
+          className="w-full h-auto object-contain"
+        />
+      </motion.div>
+
       {/* Main Content */}
-      <div className="relative flex-1 flex items-center pt-24 pb-12 px-6 md:px-12 lg:px-20">
-        <div className="w-full grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative flex-1 flex items-center pt-24 pb-12 px-6 md:px-12 lg:px-20 z-10">
+        <div className="w-full">
           {/* Left Column */}
-          <div className="space-y-8">
+          <div className="space-y-8 max-w-xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,20 +95,6 @@ const Hero = () => {
               ))}
             </motion.div>
           </div>
-
-          {/* Right Column - Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end animate-float"
-          >
-            <img
-              src={heroBanner}
-              alt="3D Abstract Hero"
-              className="w-full max-w-2xl object-contain"
-            />
-          </motion.div>
         </div>
 
         {/* Right Side Content */}

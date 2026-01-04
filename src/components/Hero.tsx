@@ -34,12 +34,12 @@ const Hero = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] w-[70%] max-w-5xl animate-float pointer-events-none z-0"
+        className="absolute bottom-0 inset-x-0 flex justify-center translate-y-[30%] pointer-events-none z-0"
       >
         <img
           src={heroBanner}
           alt="3D Abstract Hero"
-          className="w-full h-auto object-contain"
+          className="w-[70%] max-w-5xl h-auto object-contain animate-float"
         />
       </motion.div>
 

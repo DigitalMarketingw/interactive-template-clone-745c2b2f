@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 import project1 from "@/assets/project-1.png";
 import project2 from "@/assets/project-2.png";
 import project3 from "@/assets/project-3.png";
@@ -44,13 +44,12 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="space-y-8">
           {projects.map((project, idx) => (
-            <motion.div
+            <ScrollReveal
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
+              delay={idx * 0.15}
+              direction={idx % 2 === 0 ? "left" : "right"}
               className="project-card"
+              distance={80}
             >
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
@@ -96,23 +95,17 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
+        <ScrollReveal delay={0.4} className="text-center mt-12">
           <a href="#" className="btn-outline">
             View All Projects
             <ArrowRight className="w-4 h-4" />
           </a>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );

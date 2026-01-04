@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const awards = [
   {
@@ -27,22 +27,24 @@ const Awards = () => {
   return (
     <section className="section-padding bg-card">
       <div className="max-w-7xl mx-auto">
-        <span className="text-label mb-12 block">Our Awards</span>
+        <ScrollReveal>
+          <span className="text-label mb-12 block">Our Awards</span>
+        </ScrollReveal>
 
         <div className="space-y-0">
           {awards.map((award, idx) => (
-            <motion.div
+            <ScrollReveal
               key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="grid md:grid-cols-3 gap-4 py-6 border-b border-border group hover:bg-secondary/30 px-4 -mx-4 transition-colors cursor-pointer"
+              delay={idx * 0.1}
+              direction="left"
+              distance={40}
             >
-              <span className="text-foreground font-medium">{award.platform}</span>
-              <span className="text-muted-foreground">{award.title}</span>
-              <span className="text-muted-foreground text-sm">{award.project}</span>
-            </motion.div>
+              <div className="grid md:grid-cols-3 gap-4 py-6 border-b border-border hover:bg-secondary/30 px-4 -mx-4 transition-colors cursor-pointer">
+                <span className="text-foreground font-medium">{award.platform}</span>
+                <span className="text-muted-foreground">{award.title}</span>
+                <span className="text-muted-foreground text-sm">{award.project}</span>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

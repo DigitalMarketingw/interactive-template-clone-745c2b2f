@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const services = [
   {
@@ -29,27 +29,27 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-          <div>
+          <ScrollReveal direction="left">
             <span className="text-label mb-4 block">Our Services</span>
             <h2 className="heading-section">
               What<br />
               <span className="italic">We Do</span>
             </h2>
-          </div>
-          <p className="text-body max-w-md">
-            We craft digital experiences from idea to launch — blending strategy, design, and engineering to build products that perform.
-          </p>
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={0.2}>
+            <p className="text-body max-w-md">
+              We craft digital experiences from idea to launch — blending strategy, design, and engineering to build products that perform.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, idx) => (
-            <motion.div
+            <ScrollReveal
               key={service.number}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
+              delay={idx * 0.1}
+              direction="up"
               className="card-service"
             >
               <div className="relative z-10 space-y-6">
@@ -57,7 +57,7 @@ const Services = () => {
                 <h3 className="text-xl font-medium text-foreground">{service.title}</h3>
                 <p className="text-body text-sm">{service.description}</p>
               </div>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

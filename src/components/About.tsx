@@ -1,10 +1,11 @@
 import ScrollReveal from "./ScrollReveal";
+import AnimatedCounter from "./AnimatedCounter";
 import heroChrome from "@/assets/hero-chrome.png";
 
 const stats = [
-  { label: "Projects Launched", value: "100+" },
-  { label: "Years Of Experience", value: "5+" },
-  { label: "Happy Clients", value: "25+" },
+  { label: "Projects Launched", value: 100, suffix: "+" },
+  { label: "Years Of Experience", value: 5, suffix: "+" },
+  { label: "Happy Clients", value: 25, suffix: "+" },
 ];
 
 const About = () => {
@@ -40,7 +41,7 @@ const About = () => {
           <div className="grid grid-cols-3 gap-8">
             {stats.map((stat, idx) => (
               <ScrollReveal key={stat.label} delay={0.4 + idx * 0.1} direction="up" className="text-center">
-                <span className="stat-number text-foreground">{stat.value}</span>
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} className="stat-number text-foreground" />
                 <p className="text-muted-foreground text-sm mt-2">{stat.label}</p>
               </ScrollReveal>
             ))}

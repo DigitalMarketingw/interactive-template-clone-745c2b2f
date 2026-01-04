@@ -36,7 +36,7 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-16">
           <ScrollReveal direction="left">
             <h2 className="heading-section">
-              <span className="italic">What</span> We Do
+              <span className="italic">What</span> <span className="heading-display text-6xl">We Do</span>
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.2}>

@@ -20,7 +20,7 @@ const Hero = () => {
         <video
           autoPlay
           loop
-          muted
+          muted 
           playsInline
           className="w-full h-full object-cover"
         >

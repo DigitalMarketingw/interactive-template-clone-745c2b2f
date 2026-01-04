@@ -135,14 +135,18 @@
   }
 
   .card-service {
-    @apply relative overflow-hidden rounded-2xl border border-border bg-card p-8 group;
+    @apply relative overflow-hidden rounded-2xl border border-border bg-card p-8;
     background: var(--gradient-card);
   }
 
   .card-service::before {
     content: '';
-    @apply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
     background: var(--gradient-glow);
+  }
+
+  .card-service:hover::before {
+    @apply opacity-100;
   }
 
   /* Marquee Animation */
@@ -188,12 +192,16 @@
 
   /* Project Card */
   .project-card {
-    @apply relative overflow-hidden rounded-2xl border border-border group cursor-pointer;
+    @apply relative overflow-hidden rounded-2xl border border-border cursor-pointer;
     background: var(--gradient-card);
   }
 
   .project-card-image {
-    @apply w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105;
+    @apply w-full aspect-[16/10] object-cover transition-transform duration-700;
+  }
+
+  .project-card:hover .project-card-image {
+    @apply scale-105;
   }
 
   /* Pricing Card */
@@ -208,7 +216,7 @@
 
   /* Team Card */
   .team-card {
-    @apply relative overflow-hidden rounded-2xl aspect-[3/4] group;
+    @apply relative overflow-hidden rounded-2xl aspect-[3/4];
   }
 
   /* Testimonial Card */

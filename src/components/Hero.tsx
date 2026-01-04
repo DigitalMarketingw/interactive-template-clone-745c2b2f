@@ -15,11 +15,18 @@ const clientLogos = [
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-background">
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: 'radial-gradient(circle at 50% 50%, hsl(0 0% 15%) 0%, transparent 50%)'
-        }} />
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-background/60" />
       </div>
 
       {/* Main Content */}

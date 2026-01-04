@@ -200,8 +200,12 @@
 
   /* Stats number */
   .stat-number {
-    font-family: var(--font-display);
-    @apply text-5xl md:text-6xl lg:text-7xl font-medium;
+    font-family: var(--font-body);
+    @apply text-5xl md:text-6xl lg:text-7xl font-semibold;
+    background: linear-gradient(180deg, #ffffff 0%, #8a8a8a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Project Card */

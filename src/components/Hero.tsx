@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import heroChrome from "@/assets/hero-chrome.png";
+import { ChevronDown } from "lucide-react";
+import heroBanner from "@/assets/hero-banner.svg";
 
 const services = ["Brand Identity", "UI/UX Design", "Development", "Marketing"];
 
@@ -77,15 +77,15 @@ const Hero = () => {
 
           {/* Right Column - Hero Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end animate-float"
           >
             <img
-              src={heroChrome}
-              alt="3D Chrome Abstract"
-              className="w-full max-w-lg lg:max-w-xl object-contain"
+              src={heroBanner}
+              alt="3D Abstract Hero"
+              className="w-full max-w-2xl object-contain"
             />
           </motion.div>
         </div>
@@ -149,9 +149,9 @@ const Hero = () => {
             <span className="text-label">Featured</span>
             <span className="text-muted-foreground text-sm">(02)</span>
           </div>
-          <div className="w-48 h-32 rounded-lg overflow-hidden border border-border">
+          <div className="w-48 h-32 rounded-lg overflow-hidden border border-border bg-muted/20">
             <img
-              src={heroChrome}
+              src={heroBanner}
               alt="Featured Project"
               className="w-full h-full object-cover"
             />

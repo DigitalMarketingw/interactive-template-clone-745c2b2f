@@ -34,7 +34,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-4xl animate-float pointer-events-none z-0"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] w-[70%] max-w-5xl animate-float pointer-events-none z-0"
       >
         <img
           src={heroBanner}
